@@ -220,6 +220,11 @@
   dependencies:
     tslib "^2.1.0"
 
+"@wharfkit/web-renderer@^0.5.3":
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/@wharfkit/web-renderer/-/web-renderer-0.5.3.tgz#89a76b222df14344124ab3473dfd9950ff0c29fc"
+  integrity sha512-eayvObpIxx7OtAKjlxkCn33a5VRXfZLVk02vWpNwNTx1nhFckF4W5s26bpSvw0EwjPGXUL0LsjrHCFq1eXllrQ==
+
 "@wharfkit/web-ui-renderer@^0.3.6":
   version "0.3.6"
   resolved "https://registry.yarnpkg.com/@wharfkit/web-ui-renderer/-/web-ui-renderer-0.3.6.tgz#b06d00aeb57050998cc2c347d672b1ad94f61f55"
