@@ -1,16 +1,14 @@
 import { createApp } from 'vue'
 import { ref } from 'vue';
-import SessionKit, { BrowserLocalStorage, Session } from '@wharfkit/session'
+import { Session, SessionKit } from '@wharfkit/session'
 import { WalletPluginAnchor } from '@wharfkit/wallet-plugin-anchor'
 import { WalletPluginCloudWallet } from '@wharfkit/wallet-plugin-cloudwallet'
-import WebUIRenderer from '@wharfkit/web-ui-renderer'
+import WebRenderer from '@wharfkit/web-renderer'
 
 import './style.css'
 import App from './App.vue'
 
 const app = createApp(App)
-
-const ui = new WebUIRenderer()
 
 const sessionKit = new SessionKit({
     appName: 'demo',
@@ -32,8 +30,7 @@ const sessionKit = new SessionKit({
             url: 'https://wax.greymass.com',
         },
     ],
-    storage: new BrowserLocalStorage('demo'),
-    ui,
+    ui: new WebRenderer(),
     walletPlugins: [
         new WalletPluginAnchor(),
         new WalletPluginCloudWallet(),
@@ -48,5 +45,7 @@ sessionKit.restore().then((s) => {
 
 app.config.globalProperties.$sessionKit = sessionKit
 app.config.globalProperties.$session = session
+
+app.provide('sessionKit', sessionKit)
 
 app.mount('#app')
